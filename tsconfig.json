@@ -1,0 +1,31 @@
+{
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "./dist",
+    "target": "es2019",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "composite": false,
+    "types": ["node"],
+    "noEmit": true,
+    "noEmitOnError": true,
+    "declaration": true,
+    "declarationMap": false,
+    "sourceMap": true,
+    "jsx": "react",
+    "jsxFactory": "createElement",
+    "strict": true,
+    "alwaysStrict": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noEmitHelpers": true,
+    "noImplicitUseStrict": false,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["dom"]
+  }
+}

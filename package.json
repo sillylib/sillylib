@@ -1,20 +1,93 @@
 {
-  "name": "sillylib",
-  "version": "0.0.0",
+  "name": "@sillylib/sillylib",
+  "version": "0.0.0-development",
+  "private": false,
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sillylib/sillylib.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "homepage": "https://github.com/sillylib/sillylib#readme",
   "bugs": {
     "url": "https://github.com/sillylib/sillylib/issues"
   },
-  "homepage": "https://github.com/sillylib/sillylib#readme"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sillylib/sillylib.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn lint && yarn clean && rollup --config ./rollup.config.js",
+    "build:storybook": "build-storybook",
+    "clean": "mkdir -p ./dist && rm -Rf ./dist/*",
+    "eslint": "eslint --ext .ts,.tsx --config .eslintrc.js ./src",
+    "format": "yarn format:code && yarn format:package",
+    "format:check": "yarn format:check:code && yarn format:check:package",
+    "format:check:code": "prettier --check --ignore-path .prettierignore \"./**/*.{ts,tsx,json,js,jsx,md}\"",
+    "format:check:package": "sort-package-json --check",
+    "format:code": "prettier --write --ignore-path .prettierignore \"./**/*.{ts,tsx,json,js,jsx,md}\"",
+    "format:package": "sort-package-json",
+    "lint": "yarn format:check && yarn eslint",
+    "semantic-release": "semantic-release",
+    "start": "start-storybook -p 6006"
+  },
+  "release": {
+    "branches": [
+      "master"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/plugin-transform-runtime": "^7.19.1",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "8.3.4",
+    "@rollup/plugin-url": "^8.0.0",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack4": "^6.5.16",
+    "@storybook/manager-webpack4": "^6.5.16",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/node": "10.17.24",
+    "@types/react": "18.0.12",
+    "@typescript-eslint/eslint-plugin": "4.13.0",
+    "@typescript-eslint/parser": "4.13.0",
+    "babel-loader": "^8.3.0",
+    "eslint": "6.8.0",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-jest": "22.21.0",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.22.0",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-storybook": "^0.6.11",
+    "execa": "1.0.0",
+    "fs-extra": "8.1.0",
+    "husky": "^8.0.3",
+    "is-ci": "2.0.0",
+    "prettier": "2.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rollup": "2.78.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "semantic-release": "^19.0.5",
+    "sort-package-json": "^2.4.1",
+    "ts-node": "7.0.1",
+    "tslib": "2.4.0",
+    "typescript": "~4.1.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
